@@ -1,0 +1,13 @@
+streamlit
+numpy
+pandas
+matplotlib
+plotly
+reportlab
+streamlit-option-menu
+streamlit-extras
+Flask==3.0.3
+Werkzeug==3.0.3
+pandas==2.2.2
+openpyxl==3.1.2
+pdfplumber==0.11.4
