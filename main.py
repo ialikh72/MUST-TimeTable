@@ -226,13 +226,6 @@ def render_class_results(results: list) -> None:
 
 def render_public_page() -> None:
     render_header()
-
-    st.header("MUST TMS")
-    st.write(
-        "MUST TMS is the MUST Engineering Department Timetable Management System "
-        "for viewing weekly class schedules, sessions, sections, teachers, and rooms."
-    )
-
     render_date_day()
 
     st.markdown('<div class="card">', unsafe_allow_html=True)
