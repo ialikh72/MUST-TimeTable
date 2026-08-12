@@ -21,7 +21,11 @@ import streamlit as st
 
 import database as db
 from utils import export_to_csv, export_to_excel, export_to_pdf, validate_non_empty, validate_time_format
-
+st.set_page_config(
+    page_title="MUST TMS | MUST Engineering Department Timetable",
+    page_icon="📚",
+    layout="wide"
+)
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD = "admin123"
 
@@ -135,8 +139,8 @@ def render_header() -> None:
         """
         <div class="must-header">
           <div class="must-logo">🎓</div>
-          <p class="must-title">MUST Timetable</p>
-          <p class="must-subtitle">Mirpur University of Science &amp; Technology</p>
+          <p class="must-title">MUST TMS</p>
+<p class="must-subtitle">MUST Engineering Department Timetable Management System</p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -222,6 +226,13 @@ def render_class_results(results: list) -> None:
 
 def render_public_page() -> None:
     render_header()
+
+    st.header("MUST TMS")
+    st.write(
+        "MUST TMS is the MUST Engineering Department Timetable Management System "
+        "for viewing weekly class schedules, sessions, sections, teachers, and rooms."
+    )
+
     render_date_day()
 
     st.markdown('<div class="card">', unsafe_allow_html=True)
@@ -768,8 +779,6 @@ def render_admin_panel() -> None:
 # Entry point
 # ---------------------------------------------------------------------------
 def main() -> None:
-    st.set_page_config(page_title="MUST Timetable", page_icon="🎓", layout="centered")
-
     try:
         db.init_database()
     except sqlite3.Error as exc:
